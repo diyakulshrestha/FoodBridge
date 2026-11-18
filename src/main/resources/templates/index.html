@@ -1,17 +1,236 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Food Waste Redistribution System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodBridge | Share Food, Spread Hope</title>
+
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body class="bg-light">
-<div class="container text-center mt-5">
-    <h1 class="display-4 text-success fw-bold">Food Waste Redistribution System</h1>
-    <p class="lead mt-3">Connecting surplus food donors with NGOs and volunteers to eliminate avoidable food waste.</p>
-    <div class="mt-4">
-        <a th:href="@{/login}" class="btn btn-success btn-lg me-2">Login</a>
-        <a th:href="@{/register}" class="btn btn-outline-success btn-lg">Register Now</a>
-    </div>
-</div>
+
+<body class="home-page">
+
+    <!-- Navbar -->
+    <nav class="home-navbar">
+        <a th:href="@{/}" class="home-logo">
+            <span class="logo-icon">🌱</span>
+            FoodBridge
+        </a>
+
+        <div class="home-nav-links">
+            <a th:href="@{/}" class="active">Home</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#about">About Us</a>
+        </div>
+
+        <div class="home-nav-actions">
+            <a th:href="@{/login}" class="home-login">Login</a>
+            <a th:href="@{/register}" class="home-register">Get Started</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="home-hero">
+
+        <div class="hero-content">
+            <div class="hero-tag">
+                <span>🌍</span> Together for a better tomorrow
+            </div>
+
+            <h1>
+                Good Food.<br>
+                <span>Better Future.</span>
+            </h1>
+
+            <p class="hero-description">
+                Every meal deserves a purpose. FoodBridge connects food donors
+                with NGOs and volunteers to make sure surplus food reaches
+                people who need it.
+            </p>
+
+            <div class="hero-buttons">
+                <a th:href="@{/register}" class="hero-primary-btn">
+                    Start Sharing Food <span>→</span>
+                </a>
+
+                <a href="#how-it-works" class="hero-secondary-btn">
+                    Discover How It Works
+                </a>
+            </div>
+
+            <div class="hero-note">
+                <span>✓</span> Reduce food waste
+                <span>✓</span> Support communities
+            </div>
+        </div>
+
+
+        <!-- Hero Illustration -->
+        <div class="hero-visual">
+
+            <div class="visual-circle"></div>
+
+            <div class="food-illustration">
+                <div class="food-emoji">🥗</div>
+                <div class="illustration-caption">
+                    <span class="caption-dot"></span>
+                    Fresh food, shared with care
+                </div>
+            </div>
+
+            <div class="floating-card floating-card-one">
+                <span class="floating-icon">❤️</span>
+                <div>
+                    <strong>Share Kindness</strong>
+                    <small>One meal at a time</small>
+                </div>
+            </div>
+
+            <div class="floating-card floating-card-two">
+                <span class="floating-icon">♻️</span>
+                <div>
+                    <strong>Save Food</strong>
+                    <small>Make every meal count</small>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Mission Strip -->
+    <section class="mission-strip">
+        <div>
+            <span class="mission-icon">🍃</span>
+            <strong>Less Waste</strong>
+            <p>Give surplus food a second chance.</p>
+        </div>
+
+        <div>
+            <span class="mission-icon">🤝</span>
+            <strong>More Sharing</strong>
+            <p>Connect donors with those in need.</p>
+        </div>
+
+        <div>
+            <span class="mission-icon">💚</span>
+            <strong>Stronger Communities</strong>
+            <p>Make a meaningful difference together.</p>
+        </div>
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="how-section" id="how-it-works">
+
+        <div class="section-heading">
+            <span class="section-tag">SIMPLE. MEANINGFUL. IMPACTFUL.</span>
+            <h2>How FoodBridge Works</h2>
+            <p>
+                Three simple steps can turn surplus food into someone's next meal.
+            </p>
+        </div>
+
+        <div class="steps-container">
+
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <div class="step-icon">🍱</div>
+                <h3>Donate Food</h3>
+                <p>
+                    Donors share details about available surplus food,
+                    including quantity, location and expiry.
+                </p>
+            </div>
+
+            <div class="step-connector">→</div>
+
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <div class="step-icon">🏠</div>
+                <h3>Connect with NGOs</h3>
+                <p>
+                    NGOs discover available food donations and
+                    coordinate their collection.
+                </p>
+            </div>
+
+            <div class="step-connector">→</div>
+
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <div class="step-icon">🚚</div>
+                <h3>Deliver with Care</h3>
+                <p>
+                    Volunteers help coordinate pickups and deliver
+                    food to people who need it.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+            <span class="section-tag">OUR PURPOSE</span>
+
+            <h2>Small Actions.<br><span>Big Differences.</span></h2>
+
+            <p>
+                Food waste and hunger exist side by side. FoodBridge aims
+                to bridge this gap by creating a connection between
+                people who have surplus food and communities that need it.
+            </p>
+
+            <p>
+                By bringing donors, NGOs and volunteers together, we
+                believe every contribution can help build a more
+                responsible and caring society.
+            </p>
+
+            <a th:href="@{/register}" class="about-btn">
+                Become a Part of FoodBridge →
+            </a>
+        </div>
+
+        <div class="about-visual">
+            <div class="about-emoji">🌍</div>
+            <div class="about-message">
+                <strong>Share • Save • Serve</strong>
+                <span>Let's make every meal matter.</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="home-footer">
+        <div class="footer-brand">
+            <a th:href="@{/}" class="home-logo">
+                <span class="logo-icon">🌱</span>
+                FoodBridge
+            </a>
+
+            <p>Connecting food with those who need it.</p>
+        </div>
+
+        <div class="footer-links">
+            <a th:href="@{/}">Home</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#about">About</a>
+            <a th:href="@{/login}">Login</a>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 FoodBridge. Share food. Spread hope.
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -224,3 +224,1328 @@ a {
     text-decoration: none;
     font-weight: 600;
 }
+
+
+/* =========================================
+   FOODBRIDGE HOMEPAGE DESIGN
+========================================= */
+
+.home-page {
+    background: #fbfdf9;
+    color: #263b30;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.home-navbar {
+    width: 100%;
+    min-height: 82px;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    box-shadow: 0 3px 20px rgba(25, 70, 42, 0.06);
+    position: relative;
+    z-index: 10;
+}
+
+.home-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #176b43;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.logo-icon {
+    font-size: 29px;
+}
+
+.home-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.home-nav-links a,
+.footer-links a {
+    text-decoration: none;
+    color: #526257;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.home-nav-links a:hover,
+.home-nav-links a.active {
+    color: #16834d;
+}
+
+.home-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.home-login {
+    text-decoration: none;
+    color: #176b43;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.home-register {
+    text-decoration: none;
+    background: #16834d;
+    color: white;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.home-register:hover,
+.hero-primary-btn:hover,
+.about-btn:hover {
+    background: #105e36;
+    transform: translateY(-2px);
+}
+
+
+/* HERO SECTION */
+
+.home-hero {
+    min-height: 590px;
+    padding: 80px 9%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 50px;
+    background: linear-gradient(120deg, #f2faef 0%, #ffffff 65%, #f0f8ed 100%);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: #e4f4e6;
+    color: #237b49;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    color: #203d2b;
+    font-size: clamp(45px, 5vw, 68px);
+    line-height: 1.13;
+    letter-spacing: -2.5px;
+    margin-bottom: 22px;
+    font-weight: 800;
+}
+
+.hero-content h1 span {
+    color: #199354;
+}
+
+.hero-description {
+    max-width: 520px;
+    color: #66766b;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn,
+.about-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 23px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.hero-primary-btn {
+    background: #16834d;
+    color: white;
+    box-shadow: 0 8px 20px rgba(22, 131, 77, 0.17);
+}
+
+.hero-secondary-btn {
+    color: #276c45;
+    border: 1px solid #b7d6bd;
+    background: white;
+}
+
+.hero-secondary-btn:hover {
+    background: #edf7ed;
+}
+
+.hero-note {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    color: #627267;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hero-note span {
+    color: #199354;
+    margin-right: 5px;
+}
+
+
+/* HERO ILLUSTRATION */
+
+.hero-visual {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-circle {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    border-radius: 50%;
+    background: #dff1df;
+}
+
+.food-illustration {
+    width: 290px;
+    height: 310px;
+    border-radius: 48% 48% 42% 42%;
+    background: linear-gradient(145deg, #b7e3b6, #e9f7df);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 25px 60px rgba(39, 100, 53, 0.12);
+}
+
+.food-emoji {
+    font-size: 135px;
+    filter: drop-shadow(0 12px 8px rgba(40, 70, 35, 0.13));
+}
+
+.illustration-caption {
+    margin-top: 12px;
+    background: white;
+    padding: 11px 17px;
+    border-radius: 30px;
+    color: #376b46;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.caption-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #35a65e;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.floating-card {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(37, 72, 44, 0.12);
+}
+
+.floating-card-one {
+    top: 55px;
+    left: -5px;
+}
+
+.floating-card-two {
+    bottom: 45px;
+    right: -10px;
+}
+
+.floating-icon {
+    font-size: 25px;
+}
+
+.floating-card strong,
+.floating-card small {
+    display: block;
+}
+
+.floating-card strong {
+    color: #294a34;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.floating-card small {
+    color: #89978c;
+    font-size: 10px;
+}
+
+
+/* MISSION STRIP */
+
+.mission-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 35px 9%;
+    background: white;
+    border-bottom: 1px solid #edf2ec;
+}
+
+.mission-strip > div {
+    text-align: center;
+    padding: 10px 20px;
+    border-right: 1px solid #e8eee7;
+}
+
+.mission-strip > div:last-child {
+    border-right: none;
+}
+
+.mission-icon {
+    display: block;
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.mission-strip strong {
+    color: #28583a;
+    font-size: 15px;
+}
+
+.mission-strip p {
+    color: #839087;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+
+/* HOW IT WORKS */
+
+.how-section {
+    padding: 95px 8%;
+    background: #fbfdf9;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 55px;
+}
+
+.section-tag {
+    color: #239356;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h2,
+.about-content h2 {
+    color: #203d2b;
+    font-size: 38px;
+    letter-spacing: -1px;
+    margin: 13px 0;
+}
+
+.section-heading p {
+    color: #77857a;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.steps-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.step-card {
+    flex: 1;
+    min-height: 270px;
+    position: relative;
+    padding: 35px 25px;
+    background: white;
+    border: 1px solid #edf2ec;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(37, 72, 44, 0.04);
+    transition: 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(37, 72, 44, 0.09);
+}
+
+.step-number {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: #c5dfc9;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.step-icon {
+    width: 75px;
+    height: 75px;
+    margin: 15px auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #edf8ed;
+    border-radius: 20px;
+    font-size: 35px;
+}
+
+.step-card h3 {
+    color: #28583a;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: #7c8980;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.step-connector {
+    color: #54a86f;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* ABOUT SECTION */
+
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+    gap: 70px;
+    padding: 90px 11%;
+    background: #eff7ed;
+}
+
+.about-content h2 {
+    line-height: 1.25;
+    margin-top: 17px;
+}
+
+.about-content h2 span {
+    color: #1b9253;
+}
+
+.about-content p {
+    color: #68796d;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 18px 0;
+}
+
+.about-btn {
+    background: #16834d;
+    color: white;
+    margin-top: 12px;
+}
+
+.about-visual {
+    min-height: 300px;
+    border-radius: 25px;
+    background: linear-gradient(140deg, #d4ebce, #a9d6ae);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(38, 99, 48, 0.09);
+}
+
+.about-emoji {
+    font-size: 110px;
+}
+
+.about-message {
+    text-align: center;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.about-message strong,
+.about-message span {
+    display: block;
+}
+
+.about-message strong {
+    color: #247545;
+    font-size: 15px;
+}
+
+.about-message span {
+    color: #859187;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+
+/* FOOTER */
+
+.home-footer {
+    padding: 45px 9% 20px;
+    background: #183d2b;
+    color: white;
+}
+
+.home-footer .home-logo {
+    color: white;
+}
+
+.footer-brand p {
+    color: #b4cbb9;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.footer-links a {
+    color: #c2d5c7;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 18px;
+    text-align: center;
+    color: #b4cbb9;
+    font-size: 11px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+
+    .home-navbar {
+        padding: 15px 4%;
+    }
+
+    .home-nav-links {
+        gap: 15px;
+    }
+
+    .home-hero {
+        padding: 60px 6%;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .steps-container {
+        gap: 10px;
+    }
+
+    .step-card {
+        padding: 25px 15px;
+    }
+
+    .about-section {
+        padding: 70px 7%;
+        gap: 35px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .home-navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .home-nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: 12px;
+        border-top: 1px solid #edf2ec;
+    }
+
+    .home-nav-actions {
+        gap: 12px;
+    }
+
+    .home-register {
+        padding: 10px 14px;
+    }
+
+    .home-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 55px 6%;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 46px;
+    }
+
+    .hero-buttons,
+    .hero-note {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        min-height: 350px;
+        margin-top: 15px;
+    }
+
+    .visual-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .food-illustration {
+        width: 240px;
+        height: 260px;
+    }
+
+    .food-emoji {
+        font-size: 105px;
+    }
+
+    .floating-card-one {
+        left: 0;
+    }
+
+    .floating-card-two {
+        right: 0;
+    }
+
+    .mission-strip {
+        grid-template-columns: 1fr;
+        padding: 20px 8%;
+    }
+
+    .mission-strip > div {
+        border-right: none;
+        border-bottom: 1px solid #e8eee7;
+        padding: 20px;
+    }
+
+    .mission-strip > div:last-child {
+        border-bottom: none;
+    }
+
+    .how-section {
+        padding: 65px 6%;
+    }
+
+    .section-heading h2,
+    .about-content h2 {
+        font-size: 30px;
+    }
+
+    .steps-container {
+        flex-direction: column;
+    }
+
+    .step-card {
+        width: 100%;
+    }
+
+    .step-connector {
+        transform: rotate(90deg);
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        padding: 65px 7%;
+    }
+
+    .about-visual {
+        min-height: 260px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+}
+
+
+/* =====================================
+   FOODBRIDGE LOGIN PAGE
+===================================== */
+
+.auth-page {
+    min-height: 100vh;
+    background: #f5faf3;
+    color: #263b30;
+}
+
+/* Navbar */
+
+.auth-navbar {
+    height: 78px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    box-shadow: 0 3px 15px rgba(25, 70, 42, 0.05);
+}
+
+.back-home {
+    color: #247545;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-home:hover {
+    color: #105e36;
+}
+
+/* Main Layout */
+
+.auth-main {
+    min-height: calc(100vh - 140px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1150px;
+    margin: auto;
+    padding: 55px 40px;
+    gap: 65px;
+}
+
+/* Left Decoration */
+
+.auth-decoration {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 25px;
+    background: linear-gradient(140deg, #176b43, #23965a);
+    padding: 45px;
+}
+
+.auth-decoration-circle {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 50%;
+    top: -130px;
+    right: -100px;
+}
+
+.auth-decoration-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.auth-big-icon {
+    font-size: 85px;
+    margin-bottom: 20px;
+}
+
+.auth-decoration-content h2 {
+    color: white;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.auth-decoration-content > p {
+    color: #d8eee0;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.auth-benefit {
+    color: #effaf0;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.auth-benefit span {
+    color: #b8f1c6;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Form Wrapper */
+
+.auth-form-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-form-card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border: 1px solid #e9f0e8;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 45px rgba(30, 80, 45, 0.07);
+}
+
+.auth-form-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.auth-small-heading {
+    color: #239356;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.auth-form-card h1 {
+    color: #203d2b;
+    font-size: 32px;
+    margin: 12px 0 8px;
+}
+
+.auth-subtitle {
+    color: #849087;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+/* Input Fields */
+
+.auth-field {
+    margin-bottom: 22px;
+}
+
+.auth-field label {
+    display: block;
+    color: #344d3b;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.auth-field input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #dce8dc;
+    border-radius: 9px;
+    outline: none;
+    background: #fbfdfb;
+    color: #263b30;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.auth-field input:focus {
+    border-color: #239356;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(35, 147, 86, 0.10);
+}
+
+.auth-field input::placeholder {
+    color: #a6b1a8;
+}
+
+/* Submit Button */
+
+.auth-submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 9px;
+    background: #16834d;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-submit-btn:hover {
+    background: #105e36;
+    transform: translateY(-2px);
+}
+
+/* Divider */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 20px;
+    color: #a1ada3;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e8eee8;
+}
+
+.auth-register-text {
+    text-align: center;
+    color: #829087;
+    font-size: 13px;
+}
+
+.auth-register-text a {
+    color: #16834d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-register-text a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+
+.auth-footer {
+    padding: 18px;
+    text-align: center;
+    color: #89978c;
+    font-size: 11px;
+}
+
+/* Responsive */
+
+@media (max-width: 750px) {
+
+    .auth-main {
+        grid-template-columns: 1fr;
+        padding: 35px 20px;
+        gap: 30px;
+    }
+
+    .auth-decoration {
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .auth-big-icon {
+        font-size: 55px;
+    }
+
+    .auth-decoration-content h2 {
+        font-size: 27px;
+    }
+
+    .auth-form-card {
+        padding: 30px 23px;
+    }
+
+    .auth-navbar {
+        padding: 0 5%;
+    }
+}
+
+
+
+/* =====================================
+   FOODBRIDGE REGISTER PAGE
+===================================== */
+
+.register-main {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    gap: 45px;
+}
+
+.register-main .auth-decoration {
+    min-height: 600px;
+}
+
+.register-form-card {
+    max-width: 470px;
+    padding: 32px 35px;
+}
+
+.register-form-card .auth-form-icon {
+    margin-bottom: 10px;
+}
+
+.register-form-card h1 {
+    margin-top: 10px;
+}
+
+.register-form-card .auth-subtitle {
+    margin-bottom: 22px;
+}
+
+/* Register form select */
+
+.auth-field select {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #dce8dc;
+    border-radius: 9px;
+    outline: none;
+    background: #fbfdfb;
+    color: #344d3b;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-field select:focus {
+    border-color: #239356;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(35, 147, 86, 0.10);
+}
+
+.register-form-card .auth-field {
+    margin-bottom: 17px;
+}
+
+/* Responsive registration page */
+
+@media (max-width: 750px) {
+
+    .register-main {
+        padding: 30px 20px;
+    }
+
+    .register-main .auth-decoration {
+        min-height: 320px;
+    }
+
+    .register-form-card {
+        padding: 28px 22px;
+    }
+}
+
+
+
+/* ===== DONOR DASHBOARD ===== */
+
+.donor-dashboard {
+    background: #f4f8f5;
+    color: #263b30;
+    min-height: 100vh;
+}
+
+.donor-navbar {
+    background: #ffffff;
+    padding: 17px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.donor-logo {
+    color: #21834b;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.donor-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.logout-btn {
+    background: #eaf5ed;
+    color: #21834b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.donor-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 35px auto;
+}
+
+.donor-welcome {
+    background: linear-gradient(120deg, #176b3b, #36a269);
+    color: white;
+    border-radius: 18px;
+    padding: 38px 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.donor-tagline {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.donor-welcome h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.donor-welcome p {
+    margin: 0;
+}
+
+.donor-welcome-icon {
+    font-size: 65px;
+}
+
+.donor-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.045);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+.section-heading p {
+    color: #78877d;
+    font-size: 14px;
+}
+
+.section-icon {
+    font-size: 30px;
+}
+
+.donor-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.donor-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.donor-field label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.donor-field input,
+.donor-field select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce7df;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+}
+
+.donor-field input:focus,
+.donor-field select:focus {
+    border-color: #36a269;
+    box-shadow: 0 0 0 3px rgba(54,162,105,0.1);
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.donation-submit {
+    margin-top: 24px;
+    background: #21834b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.donation-submit:hover {
+    background: #176b3b;
+}
+
+.donation-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.donor-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+.donor-table th {
+    background: #eff7f1;
+    color: #365b43;
+    text-align: left;
+    padding: 15px 12px;
+    font-size: 13px;
+}
+
+.donor-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #edf1ed;
+    font-size: 14px;
+}
+
+.dietary-label {
+    display: block;
+    color: #21834b;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.status-label {
+    background: #fff4d9;
+    color: #9b6a00;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.otp-text {
+    color: #21834b;
+}
+
+.certificate-btn {
+    color: #21834b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.empty-donations {
+    text-align: center;
+    padding: 35px !important;
+    color: #78877d;
+}
+
+.donor-footer {
+    text-align: center;
+    padding: 22px;
+    color: #78877d;
+    font-size: 13px;
+}
+
+@media (max-width: 650px) {
+    .donor-navbar {
+        padding: 15px 5%;
+    }
+
+    .donor-nav-right {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .donor-welcome {
+        padding: 28px 22px;
+    }
+
+    .donor-welcome h1 {
+        font-size: 23px;
+    }
+
+    .donor-welcome-icon {
+        font-size: 40px;
+    }
+
+    .donor-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .donor-card {
+        padding: 20px 15px;
+    }
+}
+

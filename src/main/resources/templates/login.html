@@ -1,28 +1,143 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | FoodBridge</title>
+
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body class="bg-light">
-<div class="container mt-5" style="max-width: 400px;">
-    <div class="card p-4 shadow-sm">
-        <h3 class="text-center mb-4">System Login</h3>
-        <div th:if="${param.registered}" class="alert alert-success">Registration successful! Please log in.</div>
-        <div th:if="${param.error}" class="alert alert-danger">Invalid email or password.</div>
-        <form th:action="@{/login}" method="post">
-            <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" required>
+
+<body class="auth-page">
+
+    <nav class="auth-navbar">
+        <a th:href="@{/}" class="home-logo">
+            <span class="logo-icon">🌱</span>
+            FoodBridge
+        </a>
+
+        <a th:href="@{/}" class="back-home">
+            ← Back to Home
+        </a>
+    </nav>
+
+    <main class="auth-main">
+
+        <div class="auth-decoration">
+            <div class="auth-decoration-circle"></div>
+
+            <div class="auth-decoration-content">
+                <div class="auth-big-icon">🥗</div>
+                <h2>Welcome Back!</h2>
+
+                <p>
+                    Every small contribution creates a big difference.
+                    Continue your journey with FoodBridge.
+                </p>
+
+                <div class="auth-benefit">
+                    <span>✓</span> Reduce food waste
+                </div>
+
+                <div class="auth-benefit">
+                    <span>✓</span> Help communities
+                </div>
+
+                <div class="auth-benefit">
+                    <span>✓</span> Make every meal matter
+                </div>
             </div>
-            <div class="mb-3">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" required>
+        </div>
+
+
+        <div class="auth-form-wrapper">
+
+            <div class="auth-form-card">
+
+                <div class="auth-form-icon">🌿</div>
+
+                <span class="auth-small-heading">WELCOME TO FOODBRIDGE</span>
+
+                <h1>Sign In</h1>
+
+                <p class="auth-subtitle">
+                    Enter your details to access your account.
+                </p>
+
+
+                <!-- Registration Success Message -->
+                <div th:if="${param.registered}"
+                     class="alert alert-success">
+                    Registration successful! Please log in.
+                </div>
+
+
+                <!-- Login Error Message -->
+                <div th:if="${param.error}"
+                     class="alert alert-danger">
+                    Invalid email or password.
+                </div>
+
+
+                <!-- Login Form -->
+                <form th:action="@{/login}" method="post">
+
+                    <div class="auth-field">
+                        <label for="email">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+                    </div>
+
+
+                    <div class="auth-field">
+                        <label for="password">Password</label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required>
+                    </div>
+
+
+                    <button type="submit" class="auth-submit-btn">
+                        Login to Your Account →
+                    </button>
+
+                </form>
+
+
+                <div class="auth-divider">
+                    <span>NEW TO FOODBRIDGE?</span>
+                </div>
+
+                <p class="auth-register-text">
+                    Don't have an account?
+
+                    <a th:href="@{/register}">
+                        Create Account
+                    </a>
+                </p>
+
             </div>
-            <button type="submit" class="btn btn-success w-100">Login</button>
-        </form>
-        <p class="text-center mt-3"><a th:href="@{/register}">New user? Create an account</a></p>
-    </div>
-</div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="auth-footer">
+        © 2026 FoodBridge. Share • Save • Serve.
+    </footer>
+
 </body>
 </html>

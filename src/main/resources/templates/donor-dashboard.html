@@ -1,70 +1,210 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Donor Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodBridge | Donor Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
-<nav class="navbar">
-    <span class="navbar-brand">🌱 Donor Portal — <span th:text="${user.name}"></span></span>
-    <form th:action="@{/logout}" method="post"><button class="btn btn-light">Logout</button></form>
-</nav>
-<div class="container">
-    <div class="card">
-        <h3>Post Surplus Food Donation</h3>
-        <form th:action="@{/donor/donate}" th:object="${newDonation}" method="post" class="form-row">
-            <input type="text" th:field="*{foodType}" placeholder="Food Name (e.g. Veg Biryani)" required>
-            <select th:field="*{dietaryType}" style="flex: 1; min-width: 150px;" required>
-                <option value="Pure Veg">🟢 Pure Veg</option>
-                <option value="Non-Veg">🔴 Non-Veg</option>
-                <option value="Jain (No Onion/Garlic)">🟡 Jain / Satvik</option>
-                <option value="Vegan">🌿 Vegan</option>
-            </select>
-            <input type="text" th:field="*{allergens}" placeholder="Allergens (e.g. Dairy, Nuts, None)" required>
-            <input type="text" th:field="*{quantity}" placeholder="Quantity (e.g. 30 meals)" required>
-            <input type="text" th:field="*{pickupLocation}" placeholder="Pickup Address" required>
-            <select name="validHours" style="flex: 1; min-width: 170px;" required>
-                <option value="2">Fresh for 2 Hours (Urgent)</option>
-                <option value="4" selected>Fresh for 4 Hours</option>
-                <option value="6">Fresh for 6 Hours</option>
-                <option value="12">Fresh for 12 Hours</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Post Donation</button>
-        </form>
-    </div>
-    <div class="card">
-        <h3>My Food Donations</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Food & Dietary Tag</th>
-                    <th>Allergens</th>
-                    <th>Quantity</th>
-                    <th>Pickup Location</th>
-                    <th>Status</th>
-                    <th>Pickup OTP / Certificate</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="d : ${donations}">
-                    <td>
-                        <strong th:text="${d.foodType}"></strong><br>
-                        <span class="badge" th:text="${d.dietaryType}" style="font-size: 0.75rem;"></span>
-                    </td>
-                    <td th:text="${d.allergens}"></td>
-                    <td th:text="${d.quantity}"></td>
-                    <td th:text="${d.pickupLocation}"></td>
-                    <td><span class="badge" th:text="${d.status}"></span></td>
-                    <td>
-                        <strong th:if="${d.status == 'ALLOCATED' and d.pickupOtp != null}" th:text="${'OTP: ' + d.pickupOtp}" style="color: #1e8449;"></strong>
-                        <a th:if="${d.status == 'DELIVERED'}" th:href="@{/donor/certificate/{id}(id=${d.id})}" class="btn btn-primary btn-sm">🎖️ View Certificate</a>
-                        <span th:if="${d.status != 'ALLOCATED' and d.status != 'DELIVERED'}">-</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+
+<body class="donor-dashboard">
+
+    <!-- Navbar -->
+    <nav class="donor-navbar">
+        <a th:href="@{/}" class="donor-logo">🌱 FoodBridge</a>
+
+        <div class="donor-nav-right">
+            <span>Welcome, <strong th:text="${user.name}">Donor</strong></span>
+
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <main class="donor-container">
+
+        <!-- Welcome Section -->
+        <section class="donor-welcome">
+            <div>
+                <p class="donor-tagline">DONOR DASHBOARD</p>
+                <h1>Make a Difference Today 💚</h1>
+                <p>Share your surplus food and help someone in need.</p>
+            </div>
+            <div class="donor-welcome-icon">🥗</div>
+        </section>
+
+        <!-- Donation Form -->
+        <section class="donor-card" id="donate">
+            <div class="section-heading">
+                <div>
+                    <h2>Post a Food Donation</h2>
+                    <p>Enter the details of the surplus food you want to share.</p>
+                </div>
+                <span class="section-icon">🍱</span>
+            </div>
+
+            <form th:action="@{/donor/donate}"
+                  th:object="${newDonation}"
+                  method="post"
+                  class="donor-form">
+
+                <div class="donor-form-grid">
+
+                    <div class="donor-field">
+                        <label>Food Name</label>
+                        <input type="text"
+                               th:field="*{foodType}"
+                               placeholder="e.g. Veg Biryani"
+                               required>
+                    </div>
+
+                    <div class="donor-field">
+                        <label>Dietary Type</label>
+                        <select th:field="*{dietaryType}" required>
+                            <option value="Pure Veg">🟢 Pure Veg</option>
+                            <option value="Non-Veg">🔴 Non-Veg</option>
+                            <option value="Jain (No Onion/Garlic)">🟡 Jain / Satvik</option>
+                            <option value="Vegan">🌿 Vegan</option>
+                        </select>
+                    </div>
+
+                    <div class="donor-field">
+                        <label>Allergens</label>
+                        <input type="text"
+                               th:field="*{allergens}"
+                               placeholder="e.g. Dairy, Nuts, None"
+                               required>
+                    </div>
+
+                    <div class="donor-field">
+                        <label>Quantity</label>
+                        <input type="text"
+                               th:field="*{quantity}"
+                               placeholder="e.g. 30 meals"
+                               required>
+                    </div>
+
+                    <div class="donor-field full-width">
+                        <label>Pickup Address</label>
+                        <input type="text"
+                               th:field="*{pickupLocation}"
+                               placeholder="Enter complete pickup address"
+                               required>
+                    </div>
+
+                    <div class="donor-field">
+                        <label>Food Freshness</label>
+                        <select name="validHours" required>
+                            <option value="2">Fresh for 2 Hours - Urgent</option>
+                            <option value="4" selected>Fresh for 4 Hours</option>
+                            <option value="6">Fresh for 6 Hours</option>
+                            <option value="12">Fresh for 12 Hours</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="donation-submit">
+                    + Post Donation
+                </button>
+
+            </form>
+        </section>
+
+        <!-- My Donations -->
+        <section class="donor-card">
+            <div class="section-heading">
+                <div>
+                    <h2>My Food Donations</h2>
+                    <p>Track the status of the food you have shared.</p>
+                </div>
+                <span class="section-icon">📦</span>
+            </div>
+
+            <div class="donation-table-wrapper">
+                <table class="donor-table">
+                    <thead>
+                        <tr>
+                            <th>Food Details</th>
+                            <th>Allergens</th>
+                            <th>Quantity</th>
+                            <th>Pickup Location</th>
+                            <th>Status</th>
+                            <th>OTP / Certificate</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="d : ${donations}">
+                            <td>
+                                <strong th:text="${d.foodType}">Food</strong>
+                                <span class="dietary-label"
+                                      th:text="${d.dietaryType}">Veg</span>
+                            </td>
+
+                            <td th:text="${d.allergens}">None</td>
+                            <td th:text="${d.quantity}">30 meals</td>
+                            <td th:text="${d.pickupLocation}">Address</td>
+
+                            <td>
+                                <span class="status-label"
+                                      th:text="${d.status}">PENDING</span>
+                            </td>
+
+                            
+<td>
+    <!-- Donor approves NGO request -->
+    <form th:if="${d.status == 'REQUESTED'}"
+          th:action="@{/donor/approve/{id}(id=${d.id})}"
+          method="post">
+
+        <button type="submit" class="donation-submit">
+            Approve Request
+        </button>
+    </form>
+
+    <!-- Show pickup OTP -->
+    <strong class="otp-text"
+            th:if="${d.status == 'ALLOCATED' and d.pickupOtp != null}"
+            th:text="${'OTP: ' + d.pickupOtp}">
+    </strong>
+
+    <!-- Certificate -->
+    <a th:if="${d.status == 'DELIVERED'}"
+       th:href="@{/donor/certificate/{id}(id=${d.id})}"
+       class="certificate-btn">
+        🎖️ View Certificate
+    </a>
+
+    <!-- Other statuses -->
+    <span th:if="${d.status != 'REQUESTED'
+                  and d.status != 'ALLOCATED'
+                  and d.status != 'DELIVERED'}">
+        -
+    </span>
+</td>
+
+                        </tr>
+
+                        <tr th:if="${#lists.isEmpty(donations)}">
+                            <td colspan="6" class="empty-donations">
+                                🍃 You haven't posted any donations yet.
+                                Your first donation can make a difference!
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="donor-footer">
+        Made with 💚 by FoodBridge | Share • Save • Serve
+    </footer>
+
 </body>
 </html>

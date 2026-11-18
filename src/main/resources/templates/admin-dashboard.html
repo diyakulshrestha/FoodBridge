@@ -32,6 +32,56 @@
     </div>
 
     <!-- All Donations & CSV Export Button -->
+    	
+    <!-- USER MANAGEMENT -->
+    <div class="card">
+        <h3>👥 User Management</h3>
+        
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
+
+    <input
+        type="text"
+        id="userSearch"
+        placeholder="Search by name or email..."
+        style="flex: 1; min-width: 200px; padding: 10px;"
+    >
+
+    <select
+        id="roleFilter"
+        style="padding: 10px; min-width: 150px;"
+    >
+        <option value="ALL">All Roles</option>
+        <option value="ROLE_DONOR">Donor</option>
+        <option value="ROLE_NGO">NGO</option>
+        <option value="ROLE_VOLUNTEER">Volunteer</option>
+        <option value="ROLE_ADMIN">Admin</option>
+    </select>
+
+</div>
+
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="u : ${allUsers}">
+                    <td th:text="${u.id}"></td>
+                    <td class="user-name" th:text="${u.name}"></td>
+					<td class="user-email" th:text="${u.email}"></td>
+					<td class="user-role" th:text="${u.role}"></td>
+                    <td th:text="${u.points}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    	
     <div class="card">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
             <h3 style="margin: 0;">📋 All System Donations & Volunteer Allocation</h3>
@@ -92,5 +142,37 @@
         </table>
     </div>
 </div>
+
+<script>
+    const userSearch = document.getElementById("userSearch");
+    const roleFilter = document.getElementById("roleFilter");
+    const userTable = document.getElementById("userTable");
+
+    function filterUsers() {
+        const searchText = userSearch.value.toLowerCase();
+        const selectedRole = roleFilter.value;
+
+        const rows = userTable.querySelectorAll("tbody tr");
+
+        rows.forEach(row => {
+            const name = row.querySelector(".user-name").textContent.toLowerCase();
+            const email = row.querySelector(".user-email").textContent.toLowerCase();
+            const role = row.querySelector(".user-role").textContent.trim();
+
+            const matchesSearch =
+                name.includes(searchText) || email.includes(searchText);
+
+            const matchesRole =
+                selectedRole === "ALL" || role === selectedRole;
+
+            row.style.display =
+                matchesSearch && matchesRole ? "" : "none";
+        });
+    }
+
+    userSearch.addEventListener("input", filterUsers);
+    roleFilter.addEventListener("change", filterUsers);
+</script>
+
 </body>
 </html>
