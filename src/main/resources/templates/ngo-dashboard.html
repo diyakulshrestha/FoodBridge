@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NGO Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar">
+    <span class="navbar-brand">🏢 NGO Portal — <span th:text="${user.name}"></span></span>
+    <form th:action="@{/logout}" method="post"><button class="btn btn-light">Logout</button></form>
+</nav>
+<div class="container">
+    <div th:if="${errorMsg}" class="alert alert-danger" th:text="${errorMsg}"></div>
+
+    <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+            <h3 style="margin: 0;">Available Food Donations</h3>
+            <form th:action="@{/ngo/dashboard}" method="get" style="display: flex; gap: 8px;">
+                <input type="text" name="keyword" th:value="${keyword}" placeholder="Search food or location..." style="width: 240px;">
+                <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                <a th:if="${keyword != null and !keyword.isEmpty()}" th:href="@{/ngo/dashboard}" class="btn btn-outline btn-sm">Reset</a>
+            </form>
+        </div>
+                <table>
+            <thead><tr><th>Donor</th><th>Food & Dietary Tag</th><th>Allergens</th><th>Quantity</th><th>Location</th><th>Expires In</th><th>Action</th></tr></thead>
+            <tbody>
+                <tr th:each="d : ${availableDonations}">
+                    <td th:text="${d.donor.name}"></td>
+                    <td>
+                        <strong th:text="${d.foodType}"></strong><br>
+                        <span class="badge" th:text="${d.dietaryType}" style="font-size: 0.75rem;"></span>
+                    </td>
+                    <td th:text="${d.allergens}"></td>
+                    <td th:text="${d.quantity}"></td>
+                    <td th:text="${d.pickupLocation}"></td>
+                    <td><span class="countdown-timer badge" th:data-expiry="${d.availableUntil}">Calculating...</span></td>
+                    <td>
+                        <form th:action="@{/ngo/request/{id}(id=${d.id})}" method="post">
+                            <button class="btn btn-primary btn-sm">Request Food</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+
+    <div class="card">
+        <h3>My Requested Donations</h3>
+        <table>
+            <thead><tr><th>Food Type</th><th>Quantity</th><th>Expires In</th><th>Status</th><th>Volunteer</th><th>Delivery OTP</th></tr></thead>
+            <tbody>
+                <tr th:each="r : ${myRequests}">
+                    <td th:text="${r.foodType}"></td>
+                    <td th:text="${r.quantity}"></td>
+                    <td><span class="countdown-timer badge" th:data-expiry="${r.availableUntil}">Calculating...</span></td>
+                    <td><span class="badge" th:text="${r.status}"></span></td>
+                    <td th:text="${r.volunteer != null ? r.volunteer.name : 'Awaiting Volunteer'}"></td>
+                    <td>
+                        <strong th:if="${r.deliveryOtp != null and r.status != 'DELIVERED'}" th:text="${r.deliveryOtp}" style="font-size: 1.1rem; color: #1e8449; letter-spacing: 2px;"></strong>
+                        <span th:if="${r.deliveryOtp == null or r.status == 'DELIVERED'}">-</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function updateCountdowns() {
+        const now = new Date().getTime();
+        document.querySelectorAll('.countdown-timer').forEach(el => {
+            const expiryStr = el.getAttribute('data-expiry');
+            if (!expiryStr) { el.textContent = 'No Limit'; return; }
+            const diff = new Date(expiryStr).getTime() - now;
+            if (diff <= 0) {
+                el.textContent = '⚠️ EXPIRED';
+                el.style.backgroundColor = '#fadbd8'; el.style.color = '#922b21';
+            } else {
+                const h = Math.floor(diff / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                el.textContent = `⏳ ${h}h ${m}m ${s}s`;
+                if (h < 1) { el.style.backgroundColor = '#fadbd8'; el.style.color = '#922b21'; }
+            }
+        });
+    }
+    setInterval(updateCountdowns, 1000); updateCountdowns();
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate of Appreciation - FoodShare</title>
+    <style>
+        body { font-family: 'Georgia', serif; background-color: #f4f7f6; padding: 40px; text-align: center; }
+        .cert-border { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border: 12px double #1e8449; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h1 { color: #1e8449; font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .subtitle { font-size: 1.2rem; color: #5d6d7e; margin-bottom: 30px; }
+        .donor-name { font-size: 2.2rem; color: #2c3e50; font-weight: bold; border-bottom: 2px solid #27ae60; display: inline-block; padding: 5px 30px; margin: 15px 0; }
+        .details { font-size: 1.15rem; line-height: 1.8; color: #34495e; margin: 25px 0; }
+        .footer { margin-top: 40px; display: flex; justify-content: space-between; font-size: 0.95rem; color: #7f8c8d; }
+        .btn-print { background: #27ae60; color: white; border: none; padding: 12px 28px; font-size: 1rem; border-radius: 8px; cursor: pointer; margin-top: 25px; }
+        @media print { .no-print { display: none; } body { background: white; padding: 0; } }
+    </style>
+</head>
+<body>
+<div class="cert-border">
+    <h1>Certificate of Impact</h1>
+    <div class="subtitle">Awarded in Recognition of Surplus Food Rescue & Zero-Waste Contribution</div>
+    <p>This certificate is proudly presented to</p>
+    <div class="donor-name" th:text="${donation.donor.name}">Donor Name</div>
+    <div class="details">
+        For generously donating <strong th:text="${donation.foodType + ' (' + donation.quantity + ')'}"></strong><br>
+        successfully redistributed to <strong th:text="${donation.ngo.name}">NGO Name</strong><br>
+        via volunteer <strong th:text="${donation.volunteer.name}">Volunteer Name</strong>.
+    </div>
+    <div class="footer">
+        <div>Certificate ID: <strong th:text="${'FS-' + donation.id}"></strong></div>
+        <div>Verified by FoodShare Platform</div>
+    </div>
+</div>
+<div class="no-print">
+    <button onclick="window.print()" class="btn-print">🖨️ Print / Save as PDF</button>
+    <a th:href="@{/donor/dashboard}" style="margin-left: 15px; color: #1e8449; font-weight: bold;">← Back to Dashboard</a>
+</div>
+</body>
+</html>

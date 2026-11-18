@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Volunteer Route & Delivery Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar">
+    <span class="navbar-brand">🚚 Volunteer Logistics — <span th:text="${user.name}"></span> <span class="badge" style="background: white; color: #1e8449; margin-left: 10px;" th:text="${'⭐ ' + user.points + ' pts'}"></span></span>
+    
+    <form th:action="@{/logout}" method="post"><button class="btn btn-light">Logout</button></form>
+</nav>
+<div class="container">
+    <div th:if="${successMsg}" class="alert alert-success" th:text="${successMsg}"></div>
+    <div th:if="${errorMsg}" class="alert alert-danger" th:text="${errorMsg}"></div>
+
+    <!-- Active Optimized Route Card -->
+    <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+            <div>
+                <h3 style="margin-bottom: 5px;">🧭 Optimized Multi-Order Delivery Route</h3>
+                <p style="color: #5d6d7e; margin: 0;">Sequenced by active drop-offs, expiry urgency, and pickup area.</p>
+            </div>
+            <a th:if="${fullRouteUrl != null}" th:href="${fullRouteUrl}" target="_blank" class="btn btn-primary" style="background-color: #1a73e8;">
+                🗺️ Start Full Multi-Stop Route in Google Maps
+            </a>
+        </div>
+        <table>
+            <thead><tr><th>Stop #</th><th>Next Action & Location</th><th>Food</th><th>Expires In</th><th>Status</th><th>OTP Verification</th></tr></thead>
+            <tbody>
+                <tr th:each="t : ${optimizedRoute}">
+                    <td><strong th:text="${'Stop #' + t.routeSequence}" style="color: #1e8449;"></strong></td>
+                    <td>
+						<div th:if="${t.status == 'ALLOCATED'}">
+						    <strong>PICKUP:</strong> <span th:text="${t.donor.name}"></span><br>
+						    <span th:text="${t.pickupLocation}"></span>
+						    <a th:href="${'https://google.com' + '/maps/search/?api=1&query=' + t.pickupLocation}" target="_blank" style="margin-left: 6px;">📍 Map</a>
+						</div>
+						<div th:if="${t.status == 'PICKED_UP'}">
+						    <strong>DELIVER TO:</strong> <span th:text="${t.ngo.name}"></span><br>
+						    <span th:text="${t.ngo.address}"></span>
+						    <a th:href="${'https://google.com' + '/maps/search/?api=1&query=' + t.ngo.address}" target="_blank" style="margin-left: 6px;">📍 Map</a>
+						</div>
+						                        
+                        
+                    </td>
+                    <td th:text="${t.foodType + ' (' + t.quantity + ')'}"></td>
+                    <td><span class="countdown-timer badge" th:data-expiry="${t.availableUntil}">Calculating...</span></td>
+                    <td><span class="badge" th:text="${t.status}"></span></td>
+                    <td>
+                        <form th:if="${t.status == 'ALLOCATED'}" th:action="@{/volunteer/verify-pickup/{id}(id=${t.id})}" method="post" style="display: flex; gap: 8px;">
+                            <input type="text" name="otp" placeholder="Pickup OTP" maxlength="4" style="width: 130px;" required>
+                            <button type="submit" class="btn btn-primary btn-sm">Verify Pickup</button>
+                        </form>
+                        <form th:if="${t.status == 'PICKED_UP'}" th:action="@{/volunteer/verify-delivery/{id}(id=${t.id})}" method="post" style="display: flex; gap: 8px;">
+                            <input type="text" name="otp" placeholder="Delivery OTP" maxlength="4" style="width: 130px;" required>
+                            <button type="submit" class="btn btn-primary btn-sm">Verify Delivery</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Self-Claim Open Pickups Pool -->
+    <div class="card">
+        <h3>🙋 Available Pickups Near You (Self-Claim Pool)</h3>
+        <table>
+            <thead><tr><th>Pickup From</th><th>Deliver To (NGO)</th><th>Food Details</th><th>Expires In</th><th>Action</th></tr></thead>
+            <tbody>
+                <tr th:each="o : ${openPickups}">
+                    <td th:text="${o.donor.name + ' (' + o.pickupLocation + ')'}"></td>
+                    <td th:text="${o.ngo.name + ' (' + o.ngo.address + ')'}"></td>
+                    <td th:text="${o.foodType + ' (' + o.quantity + ')'}"></td>
+                    <td><span class="countdown-timer badge" th:data-expiry="${o.availableUntil}">Calculating...</span></td>
+                    <td>
+                        <form th:action="@{/volunteer/claim/{id}(id=${o.id})}" method="post">
+                            <button type="submit" class="btn btn-primary btn-sm">Accept & Claim</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+     <!-- Volunteer Leaderboard -->
+ <div class="card">
+     <h3>🏆 Top Food Rescue Volunteers</h3>
+     <table>
+         <thead><tr><th>Rank</th><th>Volunteer Name</th><th>Rescue Points</th></tr></thead>
+         <tbody>
+             <tr th:each="v, iter : ${leaderboard}">
+                 <td><strong th:text="${'#' + (iter.index + 1)}"></strong></td>
+                 <td th:text="${v.name}"></td>
+                 <td><span class="badge" th:text="${v.points + ' pts'}"></span></td>
+             </tr>
+         </tbody>
+     </table>
+ </div>
+    
+
+    <!-- Completed Deliveries -->
+    <div class="card">
+        <h3>✅ Completed Deliveries</h3>
+        <table>
+            <thead><tr><th>Food</th><th>Donor</th><th>Delivered To (NGO)</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr th:each="c : ${completedTasks}">
+                    <td th:text="${c.foodType + ' (' + c.quantity + ')'}"></td>
+                    <td th:text="${c.donor.name}"></td>
+                    <td th:text="${c.ngo.name}"></td>
+                    <td><span class="badge" th:text="${c.status}"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function updateCountdowns() {
+        const now = new Date().getTime();
+        document.querySelectorAll('.countdown-timer').forEach(el => {
+            const expiryStr = el.getAttribute('data-expiry');
+            if (!expiryStr) { el.textContent = 'No Limit'; return; }
+            const diff = new Date(expiryStr).getTime() - now;
+            if (diff <= 0) {
+                el.textContent = '⚠️ EXPIRED';
+                el.style.backgroundColor = '#fadbd8'; el.style.color = '#922b21';
+            } else {
+                const h = Math.floor(diff / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                el.textContent = `⏳ ${h}h ${m}m ${s}s`;
+                if (h < 1) { el.style.backgroundColor = '#fadbd8'; el.style.color = '#922b21'; }
+            }
+        });
+    }
+    setInterval(updateCountdowns, 1000); updateCountdowns();
+</script>
+</body>
+</html>

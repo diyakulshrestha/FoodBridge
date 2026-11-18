@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar">
+    <span class="navbar-brand">🌱 Donor Portal — <span th:text="${user.name}"></span></span>
+    <form th:action="@{/logout}" method="post"><button class="btn btn-light">Logout</button></form>
+</nav>
+<div class="container">
+    <div class="card">
+        <h3>Post Surplus Food Donation</h3>
+        <form th:action="@{/donor/donate}" th:object="${newDonation}" method="post" class="form-row">
+            <input type="text" th:field="*{foodType}" placeholder="Food Name (e.g. Veg Biryani)" required>
+            <select th:field="*{dietaryType}" style="flex: 1; min-width: 150px;" required>
+                <option value="Pure Veg">🟢 Pure Veg</option>
+                <option value="Non-Veg">🔴 Non-Veg</option>
+                <option value="Jain (No Onion/Garlic)">🟡 Jain / Satvik</option>
+                <option value="Vegan">🌿 Vegan</option>
+            </select>
+            <input type="text" th:field="*{allergens}" placeholder="Allergens (e.g. Dairy, Nuts, None)" required>
+            <input type="text" th:field="*{quantity}" placeholder="Quantity (e.g. 30 meals)" required>
+            <input type="text" th:field="*{pickupLocation}" placeholder="Pickup Address" required>
+            <select name="validHours" style="flex: 1; min-width: 170px;" required>
+                <option value="2">Fresh for 2 Hours (Urgent)</option>
+                <option value="4" selected>Fresh for 4 Hours</option>
+                <option value="6">Fresh for 6 Hours</option>
+                <option value="12">Fresh for 12 Hours</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Post Donation</button>
+        </form>
+    </div>
+    <div class="card">
+        <h3>My Food Donations</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Food & Dietary Tag</th>
+                    <th>Allergens</th>
+                    <th>Quantity</th>
+                    <th>Pickup Location</th>
+                    <th>Status</th>
+                    <th>Pickup OTP / Certificate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="d : ${donations}">
+                    <td>
+                        <strong th:text="${d.foodType}"></strong><br>
+                        <span class="badge" th:text="${d.dietaryType}" style="font-size: 0.75rem;"></span>
+                    </td>
+                    <td th:text="${d.allergens}"></td>
+                    <td th:text="${d.quantity}"></td>
+                    <td th:text="${d.pickupLocation}"></td>
+                    <td><span class="badge" th:text="${d.status}"></span></td>
+                    <td>
+                        <strong th:if="${d.status == 'ALLOCATED' and d.pickupOtp != null}" th:text="${'OTP: ' + d.pickupOtp}" style="color: #1e8449;"></strong>
+                        <a th:if="${d.status == 'DELIVERED'}" th:href="@{/donor/certificate/{id}(id=${d.id})}" class="btn btn-primary btn-sm">🎖️ View Certificate</a>
+                        <span th:if="${d.status != 'ALLOCATED' and d.status != 'DELIVERED'}">-</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
