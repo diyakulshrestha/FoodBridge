@@ -111,6 +111,40 @@ public class WorkflowController {
         donationRepository.save(donation);
         return "redirect:/donor/dashboard";
     }
+    
+    @PostMapping("/donor/approve/{id}")
+    public String approveDonation(@PathVariable Long id,
+                                  Authentication auth,
+                                  RedirectAttributes redirectAttributes) {
+
+        FoodDonation donation = donationRepository.findById(id).orElseThrow();
+        User donor = getLoggedInUser(auth);
+
+        // Check whether this donation belongs to the logged-in donor
+        if (donation.getDonor() == null ||
+            !Objects.equals(donation.getDonor().getId(), donor.getId())) {
+
+            redirectAttributes.addFlashAttribute("errorMsg",
+                    "You are not allowed to approve this donation.");
+            return "redirect:/donor/dashboard";
+        }
+
+        // Only REQUESTED donations can be approved
+        if (!"REQUESTED".equals(donation.getStatus())) {
+
+            redirectAttributes.addFlashAttribute("errorMsg",
+                    "This donation is no longer awaiting approval.");
+            return "redirect:/donor/dashboard";
+        }
+
+        donation.setStatus("APPROVED");
+        donationRepository.save(donation);
+
+        redirectAttributes.addFlashAttribute("successMsg",
+                "NGO request approved successfully.");
+
+        return "redirect:/donor/dashboard";
+    }
 
     @GetMapping("/donor/certificate/{id}")
     public String viewCertificate(@PathVariable Long id, Model model, Authentication auth) {
@@ -161,15 +195,21 @@ public class WorkflowController {
     }
 
     // --- ADMIN WORKFLOW, CSV EXPORT & IMPACT STATS ---
-    @GetMapping("/admin/dashboard")
-    public String adminDashboard(Model model) {
-        lockExpiredDonations();
-        model.addAttribute("allDonations", donationRepository.findAll());
-        model.addAttribute("volunteers", userRepository.findByRole("ROLE_VOLUNTEER"));
-        model.addAttribute("leaderboard", getVolunteerLeaderboard());
-        model.addAllAttributes(calculateImpactMetrics());
-        return "admin-dashboard";
-    }
+
+@GetMapping("/admin/dashboard")
+public String adminDashboard(Model model) {
+    lockExpiredDonations();
+
+    model.addAttribute("allDonations", donationRepository.findAll());
+    model.addAttribute("volunteers", userRepository.findByRole("ROLE_VOLUNTEER"));
+    model.addAttribute("leaderboard", getVolunteerLeaderboard());
+    model.addAttribute("allUsers", userRepository.findAll());
+
+    model.addAllAttributes(calculateImpactMetrics());
+
+    return "admin-dashboard";
+}
+
 
     @PostMapping("/admin/assign/{donationId}")
     public String assignVolunteer(@PathVariable Long donationId, @RequestParam Long volunteerId) {
@@ -245,7 +285,7 @@ public class WorkflowController {
                 ? "https://google.com" + "/maps/dir/" + String.join("/", waypoints)
                 : null;
 
-        List<FoodDonation> openPickups = donationRepository.findByStatus("REQUESTED");
+        List<FoodDonation> openPickups = donationRepository.findByStatus("APPROVED");
 
         List<FoodDonation> completedTasks = allTasks.stream()
                 .filter(t -> t.getStatus().equals("DELIVERED"))
@@ -263,7 +303,7 @@ public class WorkflowController {
     @PostMapping("/volunteer/claim/{id}")
     public String claimPickup(@PathVariable Long id, Authentication auth, RedirectAttributes redirectAttributes) {
         FoodDonation donation = donationRepository.findById(id).orElseThrow();
-        if (donation.getStatus().equals("REQUESTED") && donation.getVolunteer() == null) {
+        if (donation.getStatus().equals("APPROVED") && donation.getVolunteer() == null) {
             donation.setVolunteer(getLoggedInUser(auth));
             donation.setStatus("ALLOCATED");
             donation.setPickupOtp(generateOtp());
