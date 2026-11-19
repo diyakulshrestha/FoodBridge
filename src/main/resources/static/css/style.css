@@ -1549,3 +1549,1815 @@ a {
     }
 }
 
+
+/* =========================================
+   FOODBRIDGE - READABILITY IMPROVEMENTS
+========================================= */
+
+/* General text */
+body {
+    font-size: 16px;
+}
+
+/* Headings */
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+/* Form labels */
+label {
+    font-size: 16px;
+}
+
+/* Input fields */
+input, select, textarea {
+    font-size: 16px;
+}
+
+/* Buttons */
+.btn {
+    font-size: 16px;
+}
+
+.btn-sm, .btn-light {
+    font-size: 15px;
+}
+
+/* Tables */
+th {
+    font-size: 16px;
+}
+
+td {
+    font-size: 16px;
+}
+
+/* Status badges */
+.badge, .status-label {
+    font-size: 14px;
+}
+
+/* Alerts */
+.alert {
+    font-size: 16px;
+}
+
+/* Homepage navigation */
+.home-nav-links a,
+.footer-links a,
+.home-login,
+.home-register {
+    font-size: 16px;
+}
+
+/* Homepage hero description */
+.hero-description {
+    font-size: 18px;
+}
+
+/* Homepage buttons */
+.hero-primary-btn,
+.hero-secondary-btn,
+.about-btn {
+    font-size: 16px;
+}
+
+/* Homepage smaller supporting text */
+.hero-note {
+    font-size: 14px;
+}
+
+.mission-strip p {
+    font-size: 15px;
+}
+
+.mission-strip strong {
+    font-size: 17px;
+}
+
+.section-heading p {
+    font-size: 17px;
+}
+
+.step-card p {
+    font-size: 16px;
+}
+
+
+/* =========================================
+   FOODBRIDGE - LOGIN PAGE LAYOUT IMPROVEMENT
+========================================= */
+
+/* Use more screen space and reduce outer gaps */
+.auth-main {
+    max-width: 1400px;
+    padding: 30px 45px;
+    gap: 45px;
+    grid-template-columns: 1.1fr 0.9fr;
+}
+
+/* Make the green welcome panel bigger */
+.auth-decoration {
+    min-height: 580px;
+    padding: 60px;
+    border-radius: 25px;
+}
+
+/* Bigger welcome icon */
+.auth-big-icon {
+    font-size: 100px;
+    margin-bottom: 28px;
+}
+
+/* Welcome heading */
+.auth-decoration-content h2 {
+    font-size: 40px;
+    margin-bottom: 22px;
+}
+
+/* Welcome description */
+.auth-decoration-content > p {
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* Benefits on the green panel */
+.auth-benefit {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+/* Make login form slightly larger */
+.auth-form-card {
+    max-width: 500px;
+    padding: 48px;
+    border-radius: 24px;
+}
+
+/* Form title */
+.auth-form-card h1 {
+    font-size: 38px;
+}
+
+/* Form subtitle */
+.auth-subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+/* Form labels */
+.auth-field label {
+    font-size: 16px;
+}
+
+/* Input text */
+.auth-field input {
+    font-size: 16px;
+    padding: 16px;
+}
+
+/* Login button */
+.auth-submit-btn {
+    font-size: 17px;
+    padding: 17px;
+}
+
+/* Login page bottom spacing */
+.auth-footer {
+    font-size: 14px;
+}
+
+
+/* =============================================
+   FOODBRIDGE HOMEPAGE - VISUAL POLISH
+============================================= */
+
+/* Navigation */
+.home-navbar {
+    min-height: 88px;
+    padding: 18px 7%;
+}
+
+.home-nav-links {
+    gap: 38px;
+}
+
+.home-nav-links a,
+.home-login {
+    font-size: 16px;
+    transition: color 0.25s ease;
+}
+
+.home-nav-links a:hover,
+.home-login:hover {
+    color: #16834d;
+}
+
+.home-register {
+    padding: 15px 28px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/* Hero section */
+.home-hero {
+    min-height: 650px;
+    padding: 85px 8%;
+    gap: 65px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-content h1 {
+    font-size: clamp(52px, 5vw, 72px);
+    line-height: 1.12;
+    margin-bottom: 26px;
+}
+
+.hero-description {
+    font-size: 19px;
+    line-height: 1.9;
+    max-width: 570px;
+    margin-bottom: 36px;
+}
+
+.hero-tag {
+    font-size: 14px;
+    padding: 11px 18px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    gap: 18px;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+    padding: 17px 28px;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+/* Supporting points */
+.hero-note {
+    font-size: 15px;
+    margin-top: 35px;
+    gap: 25px;
+}
+
+/* Illustration area */
+.hero-visual {
+    min-height: 470px;
+}
+
+.visual-circle {
+    width: 390px;
+    height: 390px;
+}
+
+.food-illustration {
+    width: 320px;
+    height: 340px;
+    border-radius: 45%;
+}
+
+.food-emoji {
+    font-size: 145px;
+}
+
+.floating-card {
+    padding: 17px 22px;
+    border-radius: 15px;
+}
+
+/* Impact / mission strip */
+.mission-strip {
+    padding: 35px 5%;
+}
+
+.mission-strip p {
+    font-size: 16px;
+}
+
+.mission-strip strong {
+    font-size: 19px;
+}
+
+/* Homepage section spacing */
+.home-page section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.home-page .section-heading {
+    margin-bottom: 35px;
+}
+
+.home-page .section-heading h2 {
+    font-size: 32px;
+}
+
+.home-page .section-heading p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* How it works cards */
+.step-card {
+    padding: 30px;
+    border-radius: 18px;
+}
+
+.step-card h3 {
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.step-card p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Hover effects */
+.home-page .card,
+.step-card,
+.floating-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(24, 95, 55, 0.10);
+}
+
+/* Homepage responsive */
+@media (max-width: 900px) {
+    .home-hero {
+        padding: 60px 6%;
+        gap: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 52px;
+    }
+
+    .visual-circle {
+        width: 320px;
+        height: 320px;
+    }
+
+    .food-illustration {
+        width: 260px;
+        height: 290px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-hero {
+        padding: 45px 22px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-primary-btn,
+    .hero-secondary-btn {
+        width: 100%;
+    }
+
+    .hero-visual {
+        min-height: 330px;
+    }
+
+    .visual-circle {
+        width: 260px;
+        height: 260px;
+    }
+
+    .food-illustration {
+        width: 220px;
+        height: 230px;
+    }
+
+    .food-emoji {
+        font-size: 100px;
+    }
+}
+
+
+
+/* =============================================
+   FOODBRIDGE - DASHBOARD VISUAL IMPROVEMENTS
+============================================= */
+
+.donor-container,
+.container {
+    max-width: 1320px;
+}
+
+.donor-card,
+.card {
+    padding: 32px;
+    border-radius: 18px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+}
+
+.section-heading p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.donor-field label,
+label {
+    font-size: 16px;
+}
+
+.donor-field input,
+.donor-field select,
+input,
+select,
+textarea {
+    font-size: 16px;
+    min-height: 46px;
+}
+
+.donation-submit,
+.btn,
+button {
+    font-size: 16px;
+}
+
+table th {
+    font-size: 15px;
+    padding: 16px;
+}
+
+table td {
+    font-size: 16px;
+    padding: 17px 15px;
+}
+
+.status-label,
+.badge {
+    font-size: 14px;
+    padding: 7px 12px;
+}
+
+/* Better spacing between dashboard sections */
+.donor-container > * {
+    margin-bottom: 28px;
+}
+
+
+
+/* ============================================
+   FOODBRIDGE NGO DASHBOARD - MODERN UI
+============================================ */
+
+.ngo-page {
+    background: #f3f8f4;
+    color: #20392b;
+    font-size: 16px;
+}
+
+/* Navbar */
+.ngo-page .navbar {
+    min-height: 75px;
+    padding: 15px 5%;
+    background: #ffffff;
+    box-shadow: 0 3px 14px rgba(20, 60, 35, 0.06);
+}
+
+.ngo-page .navbar-brand {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.ngo-page .navbar .btn {
+    padding: 12px 22px;
+    border-radius: 9px;
+}
+
+/* Main container */
+.ngo-container {
+    max-width: 1440px !important;
+    width: 94%;
+    margin: 35px auto;
+}
+
+/* Welcome banner */
+.ngo-welcome {
+    background: linear-gradient(120deg, #116b43, #1b925c);
+    color: white;
+    border-radius: 22px;
+    padding: 38px 45px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 12px 28px rgba(20, 100, 55, 0.12);
+}
+
+.ngo-welcome-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    background: rgba(255,255,255,0.15);
+    padding: 8px 13px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.ngo-welcome h1 {
+    color: #ffffff;
+    font-size: 34px;
+    margin: 0 0 12px;
+}
+
+.ngo-welcome p {
+    color: #e7f5eb;
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 700px;
+}
+
+.ngo-welcome-icon {
+    font-size: 76px;
+    background: rgba(255,255,255,0.13);
+    border-radius: 50%;
+    min-width: 125px;
+    width: 125px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Summary cards */
+.ngo-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 30px;
+}
+
+.ngo-summary-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    border: 1px solid #e5eee7;
+    box-shadow: 0 5px 18px rgba(25, 60, 35, 0.04);
+}
+
+.ngo-summary-icon {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: #e8f6ed;
+    font-size: 30px;
+}
+
+.ngo-summary-label {
+    color: #64766a;
+    font-size: 16px;
+}
+
+.ngo-summary-card h2 {
+    font-size: 32px;
+    margin: 5px 0 0;
+    color: #167647;
+}
+
+/* Main dashboard cards */
+.ngo-page .card {
+    background: #ffffff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #e4ece5;
+    border-radius: 18px;
+    box-shadow: 0 6px 22px rgba(20, 60, 35, 0.04);
+}
+
+/* Section headings */
+.ngo-page .card h3 {
+    font-size: 25px;
+    color: #20392b;
+    margin-bottom: 22px;
+}
+
+/* Search bar */
+.ngo-page input[type="text"] {
+    min-height: 46px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #d7e5da;
+    border-radius: 9px;
+    outline: none;
+}
+
+.ngo-page input[type="text"]:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 75, 0.1);
+}
+
+/* Buttons */
+.ngo-page .btn {
+    font-size: 15px;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.ngo-page .btn-primary {
+    background: #16834d;
+    border-color: #16834d;
+}
+
+.ngo-page .btn-primary:hover {
+    background: #10683d;
+    transform: translateY(-1px);
+}
+
+/* Tables */
+.ngo-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ngo-page th {
+    background: #edf6ef;
+    color: #31533e;
+    font-size: 15px;
+    padding: 17px 14px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.ngo-page td {
+    font-size: 16px;
+    padding: 18px 14px;
+    border-bottom: 1px solid #edf1ed;
+    vertical-align: middle;
+}
+
+.ngo-page tbody tr:hover {
+    background: #f8fbf8;
+}
+
+/* Food name emphasis */
+.ngo-page td strong {
+    color: #214c32;
+    font-size: 17px;
+}
+
+/* Badges */
+.ngo-page .badge {
+    display: inline-block;
+    font-size: 14px !important;
+    padding: 8px 12px;
+    border-radius: 30px;
+}
+
+/* Countdown badges */
+.ngo-page .countdown-timer {
+    white-space: nowrap;
+}
+
+/* Alerts */
+.ngo-page .alert {
+    font-size: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+}
+
+/* Responsive NGO dashboard */
+@media (max-width: 900px) {
+    .ngo-welcome {
+        padding: 30px;
+    }
+
+    .ngo-welcome h1 {
+        font-size: 29px;
+    }
+
+    .ngo-page .card {
+        padding: 22px;
+    }
+
+    .ngo-summary-card {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 650px) {
+    .ngo-container {
+        width: 96%;
+        margin: 20px auto;
+    }
+
+    .ngo-welcome {
+        padding: 25px;
+    }
+
+    .ngo-welcome h1 {
+        font-size: 25px;
+    }
+
+    .ngo-welcome p {
+        font-size: 15px;
+    }
+
+    .ngo-welcome-icon {
+        display: none;
+    }
+
+    .ngo-summary {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .ngo-summary-card {
+        padding: 20px;
+    }
+
+    .ngo-page .card {
+        padding: 17px;
+        overflow-x: auto;
+    }
+
+    .ngo-page table {
+        min-width: 850px;
+    }
+
+    .ngo-page .card h3 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   FOODBRIDGE | FINAL VISUAL POLISH
+   Homepage + NGO Dashboard
+   ========================================================= */
+
+/* ---------- GLOBAL SCROLL FIX ---------- */
+html,
+body {
+    height: auto !important;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto !important;
+}
+
+.home-page {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+}
+
+/* ---------- HOMEPAGE BASE ---------- */
+.home-page {
+    background: #f7faf6;
+    color: #193d2a;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.home-page a {
+    text-decoration: none;
+}
+
+.home-page section {
+    position: relative;
+}
+
+/* ---------- NAVIGATION ---------- */
+.home-navbar {
+    min-height: 78px;
+    padding: 14px 7%;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e8efe8;
+    box-shadow: 0 4px 18px rgba(25, 60, 38, 0.04);
+}
+
+.home-logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+.home-nav-links {
+    gap: 32px;
+}
+
+.home-nav-links a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #42584a;
+    transition: color 0.2s ease;
+}
+
+.home-nav-links a:hover,
+.home-nav-links a.active {
+    color: #12834b;
+}
+
+.home-login {
+    font-weight: 700;
+}
+
+.home-register {
+    padding: 13px 23px;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 5px 14px rgba(19, 128, 72, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(19, 128, 72, 0.2);
+}
+
+/* ---------- HERO SECTION ---------- */
+.home-hero {
+    min-height: 590px;
+    padding: 72px 8%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 55px;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 82% 45%, #e0f4dc 0%, transparent 36%),
+        linear-gradient(135deg, #f0f8ee 0%, #ffffff 52%, #f0f8ed 100%);
+}
+
+.hero-content {
+    max-width: 640px;
+}
+
+.hero-tag {
+    padding: 11px 17px;
+    margin-bottom: 26px;
+    background: #e5f4e7;
+    color: #167443;
+    border: 1px solid #d4ebd8;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hero-content h1 {
+    color: #183e2a;
+    font-size: clamp(48px, 5vw, 70px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    max-width: 560px;
+    color: #596e60;
+    font-size: 19px;
+    line-height: 1.85;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+    min-height: 54px;
+    padding: 16px 26px;
+    border-radius: 11px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+}
+
+.hero-primary-btn {
+    box-shadow: 0 8px 20px rgba(17, 132, 74, 0.18);
+}
+
+.hero-primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(17, 132, 74, 0.23);
+}
+
+.hero-secondary-btn {
+    background: white;
+    border: 1px solid #c9dfce;
+}
+
+.hero-secondary-btn:hover {
+    background: #f0f8f1;
+    transform: translateY(-2px);
+}
+
+.hero-note {
+    margin-top: 28px;
+    gap: 24px;
+    color: #587060;
+    font-size: 15px;
+}
+
+/* ---------- HERO ILLUSTRATION ---------- */
+.hero-visual {
+    min-height: 440px;
+    position: relative;
+}
+
+.visual-circle {
+    width: min(370px, 80vw);
+    height: min(370px, 80vw);
+    background: #cdecc9;
+    border: 14px solid #e1f2df;
+    box-shadow: inset 0 0 0 18px rgba(255, 255, 255, 0.18);
+}
+
+.food-illustration {
+    filter: drop-shadow(0 18px 22px rgba(34, 65, 44, 0.12));
+}
+
+.food-emoji {
+    filter: drop-shadow(0 10px 15px rgba(30, 70, 40, 0.08));
+}
+
+.floating-card {
+    background: #ffffff;
+    border: 1px solid #f0f3ee;
+    padding: 18px 22px;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(25, 60, 38, 0.10);
+    transition: transform 0.25s ease;
+}
+
+.floating-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ---------- IMPACT / MISSION STRIP ---------- */
+.mission-strip {
+    padding: 28px 7%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background: white;
+    border-top: 1px solid #eaf0e9;
+    border-bottom: 1px solid #eaf0e9;
+}
+
+.mission-strip > div {
+    min-height: 145px;
+    padding: 24px 30px;
+    text-align: center;
+    border-right: 1px solid #e6eee6;
+    transition: background 0.2s ease;
+}
+
+.mission-strip > div:hover {
+    background: #f8fbf7;
+}
+
+.mission-strip > div:last-child {
+    border-right: none;
+}
+
+.mission-icon {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.mission-strip strong {
+    display: block;
+    font-size: 19px;
+    color: #245336;
+    margin-bottom: 8px;
+}
+
+.mission-strip p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #6b7e70;
+}
+
+/* ---------- HOW IT WORKS SECTION ---------- */
+.how-section {
+    padding: 85px 8%;
+    background: #f7faf6;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.section-tag {
+    display: inline-block;
+    color: #18834c;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 13px;
+}
+
+.section-heading h2,
+.about-content h2 {
+    color: #1c402b;
+    font-size: clamp(30px, 3vw, 40px);
+    line-height: 1.25;
+    letter-spacing: -0.8px;
+    margin: 12px 0 18px;
+}
+
+.section-heading p {
+    color: #687b6d;
+    font-size: 17px;
+    line-height: 1.85;
+}
+
+.steps-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 22px;
+}
+
+.step-card {
+    flex: 1;
+    min-height: 275px;
+    padding: 34px 28px;
+    background: #ffffff;
+    border: 1px solid #e3ede4;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(30, 70, 42, 0.045);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 35px rgba(30, 70, 42, 0.10);
+}
+
+.step-card h3 {
+    color: #214a30;
+    font-size: 22px;
+    margin: 18px 0 13px;
+}
+
+.step-card p {
+    color: #6b7c70;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.step-card .step-number {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: #e8f5e9;
+    color: #16824a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+/* ---------- ABOUT SECTION ---------- */
+.about-section {
+    padding: 85px 9%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 65px;
+    align-items: center;
+    background: #eaf5e9;
+}
+
+.about-content h2 {
+    margin-top: 15px;
+}
+
+.about-content p {
+    color: #586f5e;
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.about-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.about-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ---------- FOOTER ---------- */
+.home-footer {
+    padding: 45px 8%;
+    background: #163e2a;
+    color: #e9f4eb;
+}
+
+.home-footer .home-logo {
+    color: #ffffff;
+}
+
+.home-footer p {
+    color: #c1d6c5;
+    line-height: 1.8;
+}
+
+.home-footer a {
+    color: #d8eadb;
+    transition: color 0.2s ease;
+}
+
+.home-footer a:hover {
+    color: #ffffff;
+}
+
+/* ---------- HOVER CONSISTENCY ---------- */
+.home-page button,
+.home-page a {
+    transition: all 0.22s ease;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1000px) {
+    .home-hero {
+        padding: 60px 6%;
+        gap: 30px;
+        min-height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(44px, 6vw, 60px);
+    }
+
+    .hero-visual {
+        min-height: 360px;
+    }
+
+    .visual-circle {
+        width: 310px;
+        height: 310px;
+    }
+
+    .about-section {
+        gap: 35px;
+        padding: 65px 6%;
+    }
+
+    .steps-container {
+        gap: 16px;
+    }
+
+    .step-card {
+        padding: 26px 20px;
+    }
+}
+
+@media (max-width: 760px) {
+    .home-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 55px 24px 35px;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons,
+    .hero-note {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        min-height: 330px;
+    }
+
+    .visual-circle {
+        width: 285px;
+        height: 285px;
+    }
+
+    .mission-strip {
+        padding: 15px;
+    }
+
+    .mission-strip > div {
+        padding: 20px 10px;
+        min-height: auto;
+    }
+
+    .steps-container {
+        flex-direction: column;
+    }
+
+    .step-card {
+        min-height: auto;
+    }
+
+    .how-section {
+        padding: 55px 22px;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        padding: 55px 24px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .home-hero {
+        padding: 40px 20px 25px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-primary-btn,
+    .hero-secondary-btn {
+        width: 100%;
+    }
+
+    .hero-note {
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 14px;
+    }
+
+    .hero-visual {
+        min-height: 280px;
+    }
+
+    .visual-circle {
+        width: 235px;
+        height: 235px;
+    }
+
+    .mission-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-strip > div {
+        border-right: none;
+        border-bottom: 1px solid #e6eee6;
+    }
+
+    .mission-strip > div:last-child {
+        border-bottom: none;
+    }
+
+    .section-heading h2,
+    .about-content h2 {
+        font-size: 29px;
+    }
+
+    .home-footer {
+        padding: 35px 22px;
+    }
+}
+
+/* =========================================================
+   NGO DASHBOARD | MATCH HOMEPAGE DESIGN
+   Only affects NGO dashboard if ngo-page class is present
+   ========================================================= */
+
+.ngo-page {
+    background: #f4f8f4;
+    color: #243e2c;
+    font-size: 16px;
+}
+
+.ngo-container {
+    width: 94%;
+    max-width: 1440px !important;
+    margin: 32px auto;
+}
+
+.ngo-page .navbar {
+    min-height: 76px;
+    padding: 14px 5%;
+    background: #ffffff;
+    box-shadow: 0 3px 15px rgba(20, 60, 35, 0.05);
+}
+
+.ngo-page .navbar-brand {
+    font-size: 22px;
+    font-weight: 750;
+}
+
+.ngo-page .card {
+    background: #ffffff;
+    border: 1px solid #e3ece4;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 25px rgba(20, 60, 35, 0.045);
+}
+
+.ngo-page .card h3 {
+    color: #21442d;
+    font-size: 25px;
+    margin-bottom: 22px;
+}
+
+.ngo-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ngo-page th {
+    background: #eaf5eb;
+    color: #2b5437;
+    font-size: 15px;
+    padding: 16px 14px;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.ngo-page td {
+    padding: 17px 14px;
+    font-size: 16px;
+    border-bottom: 1px solid #edf2ed;
+}
+
+.ngo-page tbody tr:hover {
+    background: #f8fbf8;
+}
+
+.ngo-page .btn {
+    border-radius: 9px;
+    padding: 11px 17px;
+    font-weight: 650;
+    font-size: 15px;
+}
+
+.ngo-page .btn-primary {
+    background: #17814b;
+    border-color: #17814b;
+}
+
+.ngo-page .btn-primary:hover {
+    background: #11673b;
+}
+
+.ngo-page input[type="text"] {
+    min-height: 45px;
+    border: 1px solid #d5e4d8;
+    border-radius: 9px;
+    padding: 11px 14px;
+    font-size: 16px;
+}
+
+.ngo-page .badge {
+    font-size: 14px !important;
+    padding: 7px 11px;
+    border-radius: 30px;
+}
+
+.ngo-page .alert {
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+}
+
+/* NGO tables can be wider than smaller screens */
+@media (max-width: 760px) {
+    .ngo-container {
+        width: 96%;
+        margin: 20px auto;
+    }
+
+    .ngo-page .card {
+        padding: 18px;
+        overflow-x: auto;
+    }
+
+    .ngo-page table {
+        min-width: 850px;
+    }
+}
+
+
+/* ==========================================
+   FOODBRIDGE - HOW IT WORKS SECTION
+========================================== */
+
+.fb-how-section {
+    padding: 90px 8%;
+    background: linear-gradient(180deg, #f3faf3, #ffffff);
+    overflow: visible;
+}
+
+.fb-how-heading {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.fb-section-label {
+    display: inline-block;
+    color: #16834b;
+    background: #e5f4e7;
+    padding: 9px 17px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+}
+
+.fb-how-heading h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    color: #193e29;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0 0 18px;
+}
+
+.fb-how-heading p {
+    font-size: 17px;
+    color: #687b6d;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.fb-how-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.fb-how-card {
+    position: relative;
+    background: #ffffff;
+    padding: 38px 32px;
+    border: 1px solid #e4eee4;
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(26, 65, 39, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.fb-how-card::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #f1f8f0;
+    right: -45px;
+    bottom: -45px;
+    transition: transform 0.3s ease;
+}
+
+.fb-how-card:hover {
+    transform: translateY(-9px);
+    border-color: #b9dfc1;
+    box-shadow: 0 18px 40px rgba(26, 65, 39, 0.11);
+}
+
+.fb-how-card:hover::after {
+    transform: scale(1.5);
+}
+
+.fb-how-icon {
+    width: 76px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    border-radius: 20px;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
+}
+
+.fb-icon-donor {
+    background: #e8f6e9;
+}
+
+.fb-icon-ngo {
+    background: #e9f2ff;
+}
+
+.fb-icon-volunteer {
+    background: #fff3df;
+}
+
+.fb-step-number {
+    color: #16834b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.fb-how-card h3 {
+    color: #1d422c;
+    font-size: 23px;
+    font-weight: 750;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.fb-how-card p {
+    color: #687b6d;
+    font-size: 16px;
+    line-height: 1.85;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive cards */
+@media (max-width: 900px) {
+    .fb-how-cards {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .fb-how-card {
+        padding: 30px;
+    }
+
+    .fb-how-section {
+        padding: 65px 6%;
+    }
+}
+
+@media (max-width: 500px) {
+    .fb-how-section {
+        padding: 55px 20px;
+    }
+
+    .fb-how-heading h2 {
+        font-size: 30px;
+    }
+
+    .fb-how-heading p {
+        font-size: 15px;
+    }
+
+    .fb-how-card h3 {
+        font-size: 21px;
+    }
+
+    .fb-how-card p {
+        font-size: 15px;
+    }
+}
+
+
+/* ==========================================
+   FOODBRIDGE - LANDING PAGE HERO ENHANCEMENT
+========================================== */
+
+.home-page {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.home-navbar {
+    min-height: 78px;
+    padding: 0 7%;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.home-logo {
+    font-size: 25px !important;
+    font-weight: 800;
+}
+
+.home-nav-links a {
+    font-size: 16px;
+    padding: 10px 14px;
+}
+
+.home-nav-actions a {
+    font-size: 15px;
+    padding: 13px 22px;
+}
+
+/* Hero Section */
+.home-hero {
+    min-height: 620px;
+    padding: 85px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    background:
+        radial-gradient(circle at 80% 45%, #d9f3d7 0%, transparent 30%),
+        linear-gradient(135deg, #f6fcf4, #ffffff, #eef8ec);
+}
+
+/* Hero text */
+.hero-content {
+    max-width: 600px;
+    flex: 1;
+}
+
+.hero-tag {
+    font-size: 15px;
+    padding: 12px 20px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-size: clamp(48px, 5vw, 72px);
+    line-height: 1.12;
+    font-weight: 850;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+.hero-description {
+    font-size: 19px;
+    line-height: 1.9;
+    max-width: 540px;
+    color: #53665b;
+    margin-bottom: 32px;
+}
+
+/* Hero buttons */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.hero-primary-btn,
+.hero-secondary-btn {
+    font-size: 16px;
+    padding: 17px 26px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* Hero small highlights */
+.hero-note {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+/* Hero illustration area */
+.hero-visual {
+    flex: 1;
+    min-height: 440px;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Larger food illustration */
+.food-emoji {
+    font-size: 115px;
+}
+
+/* Floating information cards */
+.floating-card {
+    padding: 20px 24px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(25, 70, 40, 0.12);
+}
+
+.floating-card strong {
+    font-size: 16px;
+}
+
+.floating-card small {
+    font-size: 13px;
+}
+
+/* Hero mobile adjustment */
+@media (max-width: 900px) {
+    .home-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 65px 6%;
+        gap: 30px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons,
+    .hero-note {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        width: 100%;
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-hero {
+        padding: 45px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-primary-btn,
+    .hero-secondary-btn {
+        text-align: center;
+    }
+}
+
+

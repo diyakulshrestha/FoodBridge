@@ -5,15 +5,47 @@
     <title>NGO Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body class="ngo-page">
 <nav class="navbar">
     <span class="navbar-brand">🏢 NGO Portal — <span th:text="${user.name}"></span></span>
     <form th:action="@{/logout}" method="post"><button class="btn btn-light">Logout</button></form>
 </nav>
-<div class="container">
+
+<div class="container ngo-container">
+
     <div th:if="${errorMsg}" class="alert alert-danger" th:text="${errorMsg}"></div>
 
+    <!-- NGO Welcome Banner -->
+    <section class="ngo-welcome">
+        <div>
+            <span class="ngo-welcome-tag">FOODBRIDGE • NGO PORTAL</span>
+            <h1>Welcome, <span th:text="${user.name}">NGO</span>! 🌿</h1>
+            <p>Discover available food donations and help deliver meals to people who need them.</p>
+        </div>
+        <div class="ngo-welcome-icon">🥗</div>
+    </section>
+
+    <!-- Dashboard Summary -->
+    <section class="ngo-summary">
+        <div class="ngo-summary-card">
+            <div class="ngo-summary-icon">🍱</div>
+            <div>
+                <span class="ngo-summary-label">Available Donations</span>
+                <h2 th:text="${availableDonations.size()}">0</h2>
+            </div>
+        </div>
+
+        <div class="ngo-summary-card">
+            <div class="ngo-summary-icon">📋</div>
+            <div>
+                <span class="ngo-summary-label">My Requests</span>
+                <h2 th:text="${myRequests.size()}">0</h2>
+            </div>
+        </div>
+    </section>
+
     <div class="card">
+
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
             <h3 style="margin: 0;">Available Food Donations</h3>
             <form th:action="@{/ngo/dashboard}" method="get" style="display: flex; gap: 8px;">

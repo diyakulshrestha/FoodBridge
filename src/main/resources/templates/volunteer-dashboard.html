@@ -35,7 +35,8 @@
 						<div th:if="${t.status == 'ALLOCATED'}">
 						    <strong>PICKUP:</strong> <span th:text="${t.donor.name}"></span><br>
 						    <span th:text="${t.pickupLocation}"></span>
-						    <a th:href="${'https://google.com' + '/maps/search/?api=1&query=' + t.pickupLocation}" target="_blank" style="margin-left: 6px;">📍 Map</a>
+						    <a th:href="${'https://google.com' + '/maps/search/?api=1&query=' + t.pickupLocation}"
+   target="_blank" style="margin-left: 6px;">📍 Map</a>
 						</div>
 						<div th:if="${t.status == 'PICKED_UP'}">
 						    <strong>DELIVER TO:</strong> <span th:text="${t.ngo.name}"></span><br>
