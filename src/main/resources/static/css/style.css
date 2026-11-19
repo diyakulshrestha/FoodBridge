@@ -3361,3 +3361,162 @@ body {
 }
 
 
+/* ================================
+   NGO DONATION TRACKING TIMELINE
+================================ */
+
+.donation-timeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-width: 300px;
+    margin-top: 15px;
+    padding: 8px 2px;
+}
+
+.timeline-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+/* Connecting line */
+.timeline-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: #d5ddd7;
+    z-index: 0;
+}
+
+/* Timeline dots */
+.timeline-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #d5ddd7;
+    border: 2px solid #d5ddd7;
+    z-index: 1;
+    margin-bottom: 7px;
+}
+
+/* Completed steps */
+.timeline-step.done .timeline-dot {
+    background: #2e9d64;
+    border-color: #2e9d64;
+}
+
+/* Current step */
+.timeline-step.current .timeline-dot {
+    background: #ffffff;
+    border: 4px solid #218c57;
+    box-shadow: 0 0 0 4px #d8f3e3;
+}
+
+/* Timeline labels */
+.timeline-step small {
+    font-size: 10px;
+    font-weight: 600;
+    color: #8b9690;
+    white-space: nowrap;
+}
+
+.timeline-step.done small,
+.timeline-step.current small {
+    color: #218c57;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .donation-timeline {
+        min-width: 280px;
+    }
+
+    .timeline-step small {
+        font-size: 9px;
+    }
+}
+
+
+/* Make NGO requested donations table wider */
+.ngo-page .ngo-container table {
+    width: 100%;
+}
+
+/* Give the Status column enough room for timeline */
+.ngo-page .ngo-container table td:nth-child(4) {
+    min-width: 340px;
+}
+
+/* Timeline layout */
+.donation-timeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 320px;
+    margin-top: 16px;
+}
+
+/* Each step */
+.timeline-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+/* Connecting line */
+.timeline-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: #929e96;
+}
+
+/* Dots */
+.timeline-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #d5ddd7;
+    border: 2px solid #d5ddd7;
+    z-index: 1;
+    margin-bottom: 7px;
+}
+
+/* Completed */
+.timeline-step.done .timeline-dot {
+    background: #2e9d64;
+    border-color: #2e9d64;
+}
+
+/* Current */
+.timeline-step.current .timeline-dot {
+    background: white;
+    border: 4px solid #218c57;
+    box-shadow: 0 0 0 3px #d8f3e3;
+}
+
+/* Labels */
+.timeline-step small {
+    font-size: 10px;
+    font-weight: 600;
+    color: #8b9690;
+    white-space: nowrap;
+}
+
+.timeline-step.done small,
+.timeline-step.current small {
+    color: #218c57;
+}

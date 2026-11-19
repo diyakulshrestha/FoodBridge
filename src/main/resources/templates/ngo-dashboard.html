@@ -87,7 +87,48 @@
                     <td th:text="${r.foodType}"></td>
                     <td th:text="${r.quantity}"></td>
                     <td><span class="countdown-timer badge" th:data-expiry="${r.availableUntil}">Calculating...</span></td>
-                    <td><span class="badge" th:text="${r.status}"></span></td>
+                    <td>
+    <span class="badge" th:text="${r.status}"></span>
+
+    <div class="donation-timeline">
+
+        <!-- Available -->
+        <div class="timeline-step"
+             th:classappend="${r.status == 'AVAILABLE' ? 'current' : (r.status != 'AVAILABLE' ? 'done' : '')}">
+            <span class="timeline-dot"></span>
+            <small>Available</small>
+        </div>
+
+        <!-- Requested -->
+        <div class="timeline-step"
+             th:classappend="${r.status == 'REQUESTED' ? 'current' : (r.status == 'ALLOCATED' or r.status == 'PICKED_UP' or r.status == 'DELIVERED' ? 'done' : '')}">
+            <span class="timeline-dot"></span>
+            <small>Requested</small>
+        </div>
+
+        <!-- Allocated -->
+        <div class="timeline-step"
+             th:classappend="${r.status == 'ALLOCATED' ? 'current' : (r.status == 'PICKED_UP' or r.status == 'DELIVERED' ? 'done' : '')}">
+            <span class="timeline-dot"></span>
+            <small>Allocated</small>
+        </div>
+
+        <!-- Picked Up -->
+        <div class="timeline-step"
+             th:classappend="${r.status == 'PICKED_UP' ? 'current' : (r.status == 'DELIVERED' ? 'done' : '')}">
+            <span class="timeline-dot"></span>
+            <small>Picked Up</small>
+        </div>
+
+        <!-- Delivered -->
+        <div class="timeline-step"
+             th:classappend="${r.status == 'DELIVERED' ? 'current done' : ''}">
+            <span class="timeline-dot"></span>
+            <small>Delivered</small>
+        </div>
+
+    </div>
+</td>
                     <td th:text="${r.volunteer != null ? r.volunteer.name : 'Awaiting Volunteer'}"></td>
                     <td>
                         <strong th:if="${r.deliveryOtp != null and r.status != 'DELIVERED'}" th:text="${r.deliveryOtp}" style="font-size: 1.1rem; color: #1e8449; letter-spacing: 2px;"></strong>
