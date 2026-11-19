@@ -329,28 +329,55 @@ public String adminDashboard(Model model) {
         return "redirect:/volunteer/dashboard";
     }
 
-    @PostMapping("/volunteer/verify-delivery/{id}")
-    public String verifyDelivery(@PathVariable Long id, @RequestParam String otp, RedirectAttributes redirectAttributes) {
-        FoodDonation donation = donationRepository.findById(id).orElseThrow();
-        if (donation.getDeliveryOtp() != null && donation.getDeliveryOtp().equals(otp.trim())) {
-            donation.setStatus("DELIVERED");
-            donationRepository.save(donation);
 
-            User volunteer = donation.getVolunteer();
-            if (volunteer != null) {
-                int earned = 50;
-                if (donation.getAvailableUntil() != null && LocalDateTime.now().isBefore(donation.getAvailableUntil())) {
-                    earned += 20;
-                }
-                volunteer.setPoints(volunteer.getPoints() + earned);
-                userRepository.save(volunteer);
-                redirectAttributes.addFlashAttribute("successMsg", "Delivery OTP verified! You earned +" + earned + " Rescue Points!");
-            } else {
-                redirectAttributes.addFlashAttribute("successMsg", "Delivery OTP verified! Order completed.");
-            }
-        } else {
-            redirectAttributes.addFlashAttribute("errorMsg", "Invalid Delivery OTP! Please ask the NGO for the 4-digit code.");
-        }
-        return "redirect:/volunteer/dashboard";
-    }
+	@PostMapping("/volunteer/verify-delivery/{id}")
+	public String verifyDelivery(@PathVariable Long id, @RequestParam String otp, RedirectAttributes redirectAttributes) {
+	    FoodDonation donation = donationRepository.findById(id).orElseThrow();
+	
+	    if (donation.getDeliveryOtp() != null && donation.getDeliveryOtp().equals(otp.trim())) {
+	
+	        // Award points only once
+	        if (!"DELIVERED".equals(donation.getStatus())) {
+	
+	            donation.setStatus("DELIVERED");
+	            donationRepository.save(donation);
+	
+	            // Volunteer points (existing logic)
+	            User volunteer = donation.getVolunteer();
+	            if (volunteer != null) {
+	                int earned = 50;
+	                if (donation.getAvailableUntil() != null && LocalDateTime.now().isBefore(donation.getAvailableUntil())) {
+	                    earned += 20;
+	                }
+	                volunteer.setPoints(volunteer.getPoints() + earned);
+	                userRepository.save(volunteer);
+	            }
+	
+	            // Donor reward: +10 points
+	            User donor = donation.getDonor();
+	            if (donor != null) {
+	                donor.setPoints(donor.getPoints() + 10);
+	                userRepository.save(donor);
+	            }
+	
+	            // NGO reward: +10 points
+	            User ngo = donation.getNgo();
+	            if (ngo != null) {
+	                ngo.setPoints(ngo.getPoints() + 10);
+	                userRepository.save(ngo);
+	            }
+	
+	            redirectAttributes.addFlashAttribute("successMsg", "Delivery completed! Donor +10, NGO +10 and Volunteer reward points awarded!");
+	
+	        } else {
+	            redirectAttributes.addFlashAttribute("successMsg", "This delivery was already completed. Points were not awarded again.");
+	        }
+	
+	    } else {
+	        redirectAttributes.addFlashAttribute("errorMsg", "Invalid Delivery OTP! Please ask the NGO for the 4-digit code.");
+	    }
+	
+	    return "redirect:/volunteer/dashboard";
+	}
+
 }

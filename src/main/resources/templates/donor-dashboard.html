@@ -133,6 +133,7 @@
                             <th>Quantity</th>
                             <th>Pickup Location</th>
                             <th>Status</th>
+                            <th>Donation Progress</th>
                             <th>OTP / Certificate</th>
                         </tr>
                     </thead>
@@ -150,9 +151,45 @@
                             <td th:text="${d.pickupLocation}">Address</td>
 
                             <td>
-                                <span class="status-label"
-                                      th:text="${d.status}">PENDING</span>
-                            </td>
+    <span class="status-label"
+          th:text="${d.status}">PENDING</span>
+</td>
+
+<td>
+    <div class="donation-timeline">
+
+        <div class="timeline-step"
+             th:classappend="${d.status == 'AVAILABLE' or d.status == 'REQUESTED' or d.status == 'ALLOCATED' or d.status == 'PICKED_UP' or d.status == 'DELIVERED' ? 'done' : ''}">
+            <div class="timeline-dot"></div>
+            <span class="timeline-label">Available</span>
+        </div>
+
+        <div class="timeline-step"
+             th:classappend="${d.status == 'REQUESTED' or d.status == 'ALLOCATED' or d.status == 'PICKED_UP' or d.status == 'DELIVERED' ? 'done' : ''}">
+            <div class="timeline-dot"></div>
+            <span class="timeline-label">Requested</span>
+        </div>
+
+        <div class="timeline-step"
+             th:classappend="${d.status == 'ALLOCATED' or d.status == 'PICKED_UP' or d.status == 'DELIVERED' ? 'done' : ''}">
+            <div class="timeline-dot"></div>
+            <span class="timeline-label">Allocated</span>
+        </div>
+
+        <div class="timeline-step"
+             th:classappend="${d.status == 'PICKED_UP' or d.status == 'DELIVERED' ? 'done' : ''}">
+            <div class="timeline-dot"></div>
+            <span class="timeline-label">Picked Up</span>
+        </div>
+
+        <div class="timeline-step"
+             th:classappend="${d.status == 'DELIVERED' ? 'done' : ''}">
+            <div class="timeline-dot"></div>
+            <span class="timeline-label">Delivered</span>
+        </div>
+
+    </div>
+</td>
 
                             
 <td>
